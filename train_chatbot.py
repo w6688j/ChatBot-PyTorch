@@ -65,7 +65,7 @@ optimizer = optim.Adam(params_encoder + params_decoder + params_attention)
 sheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode="min", factor=0.5, patience=10)
 loss = nn.CrossEntropyLoss(ignore_index=0)
 steps_per_epoch = int(len(questions_tok) / setting_batch_size)
-for epoch in range(200):
+for epoch in range(3000):
     loss_lists = []
     all_labels = np.arange(0, len(questions_tok))
     np.random.shuffle(all_labels)

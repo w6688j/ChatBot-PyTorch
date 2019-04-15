@@ -62,3 +62,5 @@ def chat(string):
         else:
             break
     return "".join(reply)
+
+print(chat('刘德华电影的评分'))
