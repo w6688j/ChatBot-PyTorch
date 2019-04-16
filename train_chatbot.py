@@ -65,7 +65,7 @@ optimizer = optim.Adam(params_encoder + params_decoder + params_attention)
 sheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, mode="min", factor=0.5, patience=10)
 loss = nn.CrossEntropyLoss(ignore_index=0)
 steps_per_epoch = int(len(questions_tok) / setting_batch_size)
-for epoch in range(3000):
+for epoch in range(1000):
     loss_lists = []
     all_labels = np.arange(0, len(questions_tok))
     np.random.shuffle(all_labels)
@@ -98,10 +98,10 @@ for epoch in range(3000):
             i.grad = None
         l.backward()
         optimizer.step()
-        print(l)
         loss_lists.append(l.cpu().data.numpy())
     with open("losses", "a") as f:
         epoch_loss = np.mean(loss_lists)
+        print("Epoch: {}, Loss: {}\n".format(str(epoch), str(epoch_loss)))
         f.write("Epoch: {}, Loss: {}\n".format(str(epoch), str(epoch_loss)))
     sheduler.step(epoch_loss)
     # check model weights
