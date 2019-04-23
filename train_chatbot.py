@@ -33,11 +33,21 @@ with open("Q_no_repeat","wb") as f:
 with open("A_no_repeat","wb") as f:
     pickle.dump(answers_tok_no_repeat,f,protocol=pickle.HIGHEST_PROTOCOL)'''
 
-with open("data/Q_no_repeat", "rb") as f:
-    questions_tok = pickle.load(f)
+# with open('data/region_extend_corpus.txt', 'r', encoding='utf-8') as f:
+#     length = 0
+#     for i, line in enumerate(f):
+#         length = i + 1
 
-with open("data/A_no_repeat", "rb") as f:
-    answers_tok = pickle.load(f)
+length = 50000
+questions_tok = []
+answers_tok = []
+with open("data/Q_no_repeat_extend", "rb") as f:
+    for i in range(length):
+        questions_tok.append(pickle.load(f))
+
+with open("data/A_no_repeat_extend", "rb") as f:
+    for i in range(length):
+        answers_tok.append(pickle.load(f))
 
 maxlen_q, maxlen_a = 19, 19
 maxlength_list = [5, 10, 15, 20]
