@@ -67,6 +67,11 @@ def chat(string):
     return "".join(reply)
 
 
+print(chat('1986年人口不大于1亿的省有哪些'))
+print(chat('1986年人口不大于2亿的省有哪些'))
+print(chat('1986年人口数不大于1亿的省有哪些'))
+exit()
+
 print('开始生成')
 with open('data/question.txt', 'r', encoding='utf-8') as f:
     with open('data/output.txt', 'a+', encoding='utf-8') as out:
