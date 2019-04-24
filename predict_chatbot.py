@@ -68,12 +68,12 @@ def chat(string):
 
 
 print('开始生成')
-with open('data/normalize.txt', 'r', encoding='utf-8') as f:
+with open('data/question.txt', 'r', encoding='utf-8') as f:
     with open('data/output.txt', 'a+', encoding='utf-8') as out:
         for line in f:
             line_st = line.strip()
             if len(line_st) > 20:
-                out.write(line_st + '\n')
+                out.write(line_st + ' None' + '\n')
             else:
                 out.write(line_st + ' ' + chat(line_st) + '\n')
             out.flush()
