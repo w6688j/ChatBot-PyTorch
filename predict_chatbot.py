@@ -1,9 +1,10 @@
-import torch
 import pickle
-from torch import nn, optim
-from torch.autograd import Variable
-import torch.nn.functional as F
+
 import numpy as np
+import torch
+from torch import nn
+
+from ElasticSearch import ESSearch
 from models_are_here import Attention_layer, EncoderRNN, DecoderRNN
 
 # load words dictionary
@@ -67,9 +68,16 @@ def chat(string):
     return "".join(reply)
 
 
-print(chat('1986年人口不大于1亿的省有哪些'))
-print(chat('1986年人口不大于2亿的省有哪些'))
-print(chat('1986年人口数不大于1亿的省有哪些'))
+q1 = ESSearch('1986年人口不大于1亿的省有哪些?').search()
+q2 = ESSearch('1986年人口不大于2亿的省有哪些?').search()
+q3 = ESSearch('1986年人口数不大于1亿的省有哪些?').search()
+
+print(q1)
+print(q2)
+print(q3)
+print(chat(q1))
+print(chat(q2))
+print(chat(q3))
 exit()
 
 print('开始生成')
