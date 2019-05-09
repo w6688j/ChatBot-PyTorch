@@ -68,9 +68,9 @@ def chat(string):
     return "".join(reply)
 
 
-q1 = ESSearch('1986年人口不大于1亿的省有哪些?').search()
-q2 = ESSearch('1986年人口不大于2亿的省有哪些?').search()
-q3 = ESSearch('1986年人口数不大于1亿的省有哪些?').search()
+q1 = ESSearch('2008年人口小于1亿的省有哪些?').search()
+q2 = ESSearch('2008年人口不大于2亿的省有哪些?').search()
+q3 = ESSearch('2008年人口数不大于1亿的省有哪些?').search()
 
 print(q1)
 print(q2)
