@@ -49,7 +49,7 @@ with open("data/A_no_repeat_extend", "rb") as f:
     for i in range(length):
         answers_tok.append(pickle.load(f))
 
-maxlen_q, maxlen_a = 19, 19
+maxlen_q, maxlen_a = 79, 79
 maxlength_list = [5, 10, 15, 20]
 '''with open("length_classified_questions","rb") as f:
     length_classified_questions=pickle.load(f)
