@@ -1,3 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
 .idea/
 /data/region_extend_corpus.txt
+/weights/
+/weights_v2/
